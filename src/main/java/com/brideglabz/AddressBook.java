@@ -3,7 +3,7 @@ package com.brideglabz;
 import java.util.Scanner;
 
 public class AddressBook {
-     ContactDetails person;
+    ContactDetails person;
      Scanner sc = new Scanner(System.in);
 
      public void addDetails() {
@@ -53,5 +53,43 @@ public class AddressBook {
     // delete contact
     public void delete() {
 
+    }
+
+    public void getMenu() {
+        boolean exit = false;
+        do {
+            System.out.println("Choose the valid option \n1. Add Contacts \n2. Edit Contact \n3. Delete Contact \n4. View Contacts \n5. Exit ");
+            int option = Scanner.nextInt();
+            final String s;
+            s = Scanner.nextLine();
+            switch (option) {
+                case 1:
+                    addDetails();
+                    System.out.println("Contact added successfully....");
+                    break;
+                case 2:
+                    editContact();
+                    System.out.println("Contact details updated successfully");
+                    break;
+                case 3:
+                    deleteContact();
+                    break;
+                case 4:
+                    showContact();
+                    break;
+                case 5:
+                    exit = true;
+                    break;
+                default:
+                    System.out.print("Enter the valid option!");
+                    break;
+            }
+        } while (!exit);
+    }
+
+    private void showContact() {
+    }
+
+    private void deleteContact() {
     }
 }
