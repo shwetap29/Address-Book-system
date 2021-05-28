@@ -1,2 +1,4 @@
 com/brideglabz/AddressBookMain.java
  com.brideglabz.AddressBookMain
+com/brideglabz/ContactDetails.java
+ com.brideglabz.ContactDetails

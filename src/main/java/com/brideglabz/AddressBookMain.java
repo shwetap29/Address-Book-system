@@ -1,47 +1,53 @@
 package com.brideglabz;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
-    public static void main(String[] args) {
-        List<String> person = new ArrayList<String>();
-        Scanner input = new Scanner(System.in);
+    ContactDetails person;
+    Scanner sc = new Scanner(System.in);
 
-        System.out.println("Welcome to Address Book System");
+    public void addDetails() {
+        person = new ContactDetails();
 
         System.out.println("Enter First name: ");
-        String fname = input.nextLine();
-
+        String fname = sc.nextLine();
         System.out.println("Enter Last name: ");
-        String lname = input.nextLine();
-
+        String lname = sc.nextLine();
         System.out.println("Enter First Address: ");
-        String address = input.nextLine();
-
+        String address = sc.nextLine();
         System.out.println("Enter City: ");
-        String city = input.nextLine();
-
+        String city = sc.nextLine();
         System.out.println("Enter State: ");
-        String state = input.nextLine();
-
+        String state = sc.nextLine();
         System.out.println("Enter Zip: ");
-        String zip = input.nextLine();
-
+        String zip = sc.nextLine();
         System.out.println("Enter Phone number: ");
-        String phone = input.nextLine();
+        String phone = sc.nextLine();
+        System.out.println("Enter Your Email: ");
+        String email = sc.nextLine();
 
-        person.add(fname);
-        person.add(lname);
-        person.add(address);
-        person.add(city);
-        person.add(state);
-        person.add(zip);
-        person.add(phone);
+        person.setFirstName(fname);
+        person.setLastName(lname);
+        person.setAddress(address);
+        person.setCity(city);
+        person.setState(state);
+        person.setZip(zip);
+        person.setMobileNumber(phone);
+        person.setEmail(email);
 
-        for (String str : person){
-            System.out.println(str);
+    }
+     public void editContact() {
+        System.out.println("Enter the firstName of the Person");
+         String editName = sc.nextLine();
+        if (editName.equalsIgnoreCase(person.firstName)) {
+            addDetails();
+        }else{
+            System.out.println("The name does not match the AddressBook");
+            System.out.println("Please enter valid First Name");
+            editContact();
         }
     }
-}
+
+        }
+
+
