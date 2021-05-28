@@ -1,47 +1,53 @@
 package com.brideglabz;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        List<String> person = new ArrayList<String>();
-        Scanner input = new Scanner(System.in);
+        ContactDetails person;
+        Scanner sc =new Scanner(System.in);
 
-        System.out.println("Welcome to Address Book System");
+        public void add() {
+            person = new ContactDetails();
 
-        System.out.println("Enter First name: ");
-        String fname = input.nextLine();
+       System.out.println("Enter First Name: ");
+       String fname = sc.nextLine();
 
-        System.out.println("Enter Last name: ");
-        String lname = input.nextLine();
+       System.out.println("Enter Last Name: ");
+        String lname = sc.nextLine();
 
-        System.out.println("Enter First Address: ");
-        String address = input.nextLine();
+         System.out.println("Enter Address: ");
+         String address = sc.nextLine();
 
         System.out.println("Enter City: ");
-        String city = input.nextLine();
+        String city = sc.nextLine();
 
         System.out.println("Enter State: ");
-        String state = input.nextLine();
+        String state = sc.nextLine();
 
-        System.out.println("Enter Zip: ");
-        String zip = input.nextLine();
+        System.out.println("Enter Your Zip: ");
+        String zip = sc.nextLine();
 
-        System.out.println("Enter Phone number: ");
-        String phone = input.nextLine();
+        System.out.println("Enter Your MobileNumber: ");
+        String Mobile = sc.nextLine();
 
-        person.add(fname);
-        person.add(lname);
-        person.add(address);
-        person.add(city);
-        person.add(state);
-        person.add(zip);
-        person.add(phone);
+         System.out.println("Enter Your Email: ");
+         String email = sc.nextLine();
+            person.setFirstName(fname);
+            person.setLastName(lname);
+            person.setAddress(address);
+            person.setCity(city);
+            person.setState(state);
+            person.setZipCode(zip);
+            person.setPhoneNumber(Mobile);
+            person.setEmail(email);
 
-        for (String str : person){
-            System.out.println(str);
+            System.out.println(person);
+
         }
     }
 }
+
+
