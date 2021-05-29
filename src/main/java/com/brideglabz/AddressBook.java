@@ -1,8 +1,10 @@
 package com.brideglabz;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class AddressBook {
+    public LinkedList<com.brideglabz.person> addperson;
     ContactDetails person;
      Scanner sc = new Scanner(System.in);
 
@@ -91,5 +93,11 @@ public class AddressBook {
     }
 
     private void deleteContact() {
+    }
+
+    public LinkedList<com.brideglabz.person> editPerson(LinkedList<com.brideglabz.person> addressBook) {
+    }
+
+    public LinkedList<com.brideglabz.person> deletePerson(LinkedList<com.brideglabz.person> addressBook) {
     }
 }
