@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class AddressBookMain {
 
+
     public static void main(String[] args) {
-        LinkedList<person> addressBook = new LinkedList<>(person);
+        LinkedList<person> addressBook = new LinkedList<person>();
         AddressBook ab = new AddressBook();
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Address Book System ");
@@ -28,7 +29,7 @@ public class AddressBookMain {
                     break;
                 case 2:
                     if (addressBook.isEmpty()) {
-                        System.out.println("Address Book is Empty !!!");
+                        System.out.println("Address Book is Empty ");
                     } else {
                         for (person Person : addressBook) {
                             System.out.println(person.toString());
