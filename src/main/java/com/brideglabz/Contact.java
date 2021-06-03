@@ -75,7 +75,7 @@ public class Contact {
         if(obj == this) {
             return true;
         }
-        Contact contact = (Contact)obj; //casted the above object inside Contact
+        Contact contact = (Contact)obj; //type casted obj to contact so that we can compare
         if (contact.firstName.equals(this.firstName) && contact.lastName.equals(this.lastName)){
             return true;
         }
