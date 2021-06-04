@@ -2,9 +2,9 @@ com/brideglabz/ContactDetails.java
  com.brideglabz.ContactDetails
 com/brideglabz/person.java
  com.brideglabz.person
-com/brideglabz/AddressBookMain.java
- com.brideglabz.AddressBookMain
 com/brideglabz/Contact.java
  com.brideglabz.Contact
+com/brideglabz/AddressBookMain.java
+ com.brideglabz.AddressBookMain
 com/brideglabz/AddressBook.java
  com.brideglabz.AddressBook
