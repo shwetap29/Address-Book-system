@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBookMain {
+
     public static Map<String, AddressBook> addressBookHashMap = new HashMap<>();
     Scanner scanner = new Scanner(System.in);
 
@@ -86,6 +87,7 @@ public class AddressBookMain {
         }
         System.out.println(count1 + " Contacts in " + city);
     }
+
     // method to sort the entries alphabetically by person's Name
     public static void sortByName() {
         List<Contact> list = new ArrayList<>();
@@ -95,8 +97,30 @@ public class AddressBookMain {
         list.stream().sorted((p1, p2) -> ((String)p1.getFirstName()).compareTo(p2.getFirstName()))
                 .forEach(contact -> System.out.println(contact.getFirstName()+" "+contact.getLastName()));
     }
+    // Method To sort Entries By Zip
+    public static void sortByZip() {
+        List<Contact> list = new ArrayList<>();
+        for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+            list = entries.getValue().getAddressBook().stream().collect(Collectors.toList());
+        }
+        list.stream().sorted((p1, p2) -> ((String) p1.getZip()).compareTo(p2.getZip()))
+                .forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
+    }
 
-    // MAIN METHOD
+//method to sort entries by city
+    public static void sortByCity(){
+        List<Contact> list = new ArrayList<>();
+        for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+            list = entries.getValue().getAddressBook().stream().collect(Collectors.toList());
+        }
+        list.stream().sorted((p1 , p2) -> ((String)p1.getCity()).compareTo(p2.getCity()))
+                .forEach(contact -> System.out.println(contact.getFirstName()+" "+contact.getLastName()));
+    }
+
+
+
+
+        // MAIN METHOD
     public static void main(String[] args) {
         System.out.println(" ---------------------------- Welcome To AddressBook System ------------------------------");
         Scanner scanner = new Scanner(System.in);
@@ -110,6 +134,8 @@ public class AddressBookMain {
                     "5. View Contact by City" + "\n" +
                     "6. Count Contacts by City" + "\n" +
                     "7. Show Contacts" + "\n" +
+                    "8. Sort Contacts By City|Zip" + "\n" +
+                    "9. Show Contacts" + "\n" +
                     "0. Exit" + "\n" +
                     "Enter your choice:");
 
@@ -127,11 +153,11 @@ public class AddressBookMain {
                     System.out.println("Enter First Name of the contact you want to edit");
                     String checkName1 = scanner.next();
 
-                    for (Map.Entry<String,AddressBook> entry : addressBookHashMap.entrySet()) {
-                        if(entry.getKey().equalsIgnoreCase(city)) {
+                    for (Map.Entry<String, AddressBook> entry : addressBookHashMap.entrySet()) {
+                        if (entry.getKey().equalsIgnoreCase(city)) {
                             entry.getValue().editContactByFirstName(checkName1);
-                        }else {
-                            System.out.println("The"+ city +" address book does not present.");
+                        } else {
+                            System.out.println("The" + city + " address book does not present.");
                         }
                     }
                     break;
@@ -143,11 +169,11 @@ public class AddressBookMain {
                     System.out.println("Enter First Name of the contact you want to delete");
                     String checkName2 = scanner.next();
 
-                    for (Map.Entry<String,AddressBook> entry : addressBookHashMap.entrySet()) {
-                        if(entry.getKey().equalsIgnoreCase(city)) {
+                    for (Map.Entry<String, AddressBook> entry : addressBookHashMap.entrySet()) {
+                        if (entry.getKey().equalsIgnoreCase(city)) {
                             entry.getValue().deleteContact(checkName2);
-                        }else {
-                            System.out.println("The"+ city +" address book does not exist.");
+                        } else {
+                            System.out.println("The" + city + " address book does not exist.");
                         }
                     }
                     break;
@@ -156,7 +182,7 @@ public class AddressBookMain {
                     String name1;
                     System.out.println("Enter City , First Name you want to search:");
                     String city2 = scanner.next();
-                    name1= scanner.next();
+                    name1 = scanner.next();
                     searchContactByCityOrState(city2, name1);
                     break;
 
@@ -175,9 +201,17 @@ public class AddressBookMain {
                     sortByName();
                     break;
 
-                    case 8:
-                    for (Map.Entry<String,AddressBook> entry : addressBookHashMap.entrySet()) {
-                        System.out.println(entry.getKey() + "\t" + entry.getValue().getAddressBook()); }
+                case 8:
+                    System.out.println("Sort By Zip:");
+                    sortByZip();
+                    System.out.println("Sort By City:");
+                    sortByCity();
+                    break;
+
+                case 9:
+                    for (Map.Entry<String, AddressBook> entry : addressBookHashMap.entrySet()) {
+                        System.out.println(entry.getKey() + "\t" + entry.getValue().getAddressBook());
+                    }
             }
         } while(choice != 0);
     }
