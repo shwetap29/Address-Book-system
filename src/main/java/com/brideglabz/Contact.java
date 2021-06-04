@@ -21,6 +21,9 @@ public class Contact {
         this.email = email;
     }
 
+    public Contact(String firstName, String lastName, String address, String cityName, String zipcode, String phoneNumber, String emailID) {
+    }
+
     public String getFirstName() {
         return firstName;
     }
